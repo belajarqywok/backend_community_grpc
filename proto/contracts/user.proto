@@ -1,0 +1,25 @@
+syntax="proto3"; 
+
+//Definisi Package di Golang. Ketika 
+//protobuf digenerate, maka akan mengikuti struktur folder
+//berikut
+option go_package="proto/boilerplates"; 
+
+//Definisi package
+package user;
+
+//Request Payload
+message GreetingRequest {
+  string name = 1;
+  string salutation = 2;
+}
+
+//Response Payload
+message GreetingResponse {
+  string GreetingMessage = 1;
+}
+
+//Define RPC service
+service UserService {
+  rpc GreetUser(GreetingRequest) returns (GreetingResponse);
+}
